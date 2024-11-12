@@ -9,5 +9,18 @@ title: Carlo Trimarchi | Software Engineer
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{ title }</title>
   </head>
-  <body @raw="content"> </body>
+  <body> 
+	<header>
+		<a href="/">Carlo Trimarchi</a>
+		<nav aria-label="primary">
+			<ul>
+			    <li webc:for="item of navigation.items">
+			      <a :href="item.url" @raw="item.text"></a>
+			    </li>
+			</ul>
+		</nav>
+	</header>
+
+	<div @raw="content"></div>
+  </body>
 </html>
