@@ -2,5 +2,11 @@
 layout: layout.webc
 ---
 
-Main content...
-
+<div class="hero">
+	<h1>Carlo Trimarchi</h1>
+	<p>Software Engineer / Teacher / Slow Rubik's Cube Solver</p>
+	<p>
+		Hi, I'm Carlo 👋<br>
+		I'm a software engineer based in Berlin. I specialise in full-stack web development and have a passion for teaching. I like comics, dinosaurs, and working on lots of side projects — some of which I even finish.
+	</p>
+</div>

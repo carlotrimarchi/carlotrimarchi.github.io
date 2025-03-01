@@ -1,5 +1,6 @@
 ---
 title: Carlo Trimarchi | Software Engineer
+baseUrl: "{{ baseUrl }}"
 ---
 
 <!doctype html>
@@ -7,20 +8,23 @@ title: Carlo Trimarchi | Software Engineer
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{ title }</title>
+    <title @raw="title"></title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap" rel="stylesheet" webc:keep>
+    <link rel="stylesheet" href="/assets/css/main.css" webc:keep />
   </head>
   <body> 
-	<header>
-		<a href="/">Carlo Trimarchi</a>
-		<nav aria-label="primary">
-			<ul>
-			    <li webc:for="item of navigation.items">
-			      <a :href="item.url" @raw="item.text"></a>
-			    </li>
-			</ul>
-		</nav>
+	<header class="wrapper">
+			<nav class="header__nav" aria-label="primary">
+				<ul class="cluster" role="list">
+				    <li webc:for="item of navigation.items">
+				      <a :href="item.url" @raw="item.text"></a>
+				    </li>
+				</ul>
+			</nav>
 	</header>
 
-	<div @raw="content"></div>
+	<div class="wrapper" @raw="content"></div>
   </body>
 </html>
