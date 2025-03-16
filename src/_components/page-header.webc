@@ -1,0 +1,23 @@
+<h2 @html="this.title"></h2>
+<h1>Carlo Trimarchi</h1>
+<p>Software Engineer / Teacher / <span id="dynamic-title">Slow Rubik's Cube Solver</span></p>
+
+<script webc:keep>
+function setRandomTitle() {
+	const titles = [
+		"Slow Rubik's Cube Solver",
+		"Professional Chess Blunderer",
+		"Mediocre Guitarist",
+		"Poor Ukulele Player",
+		"Nap Enthusiast",
+		"Unqualified Dinosaur Expert",
+		"Senior (neo)vim Novice"
+	];
+	const titleElement = document.getElementById("dynamic-title");
+	if (!titleElement) return;
+
+	const randomTitle = titles[Math.floor(Math.random() * titles.length)];
+	titleElement.textContent = randomTitle;
+}
+document.addEventListener("DOMContentLoaded", setRandomTitle);
+</script>

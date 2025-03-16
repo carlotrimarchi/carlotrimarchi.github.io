@@ -1,9 +1,12 @@
 @import "_reset.css";
 @import "_variables.css";
+@import "_nav.css";
 @import "_hero.css";
 
 body {
-  font-family: "Inconsolata", monospace;
+  background-color: var(--color-yellow);
+  color: var(--color-black);
+  font-family: var(--font-base);
   font-optical-sizing: auto;
   font-weight: 500;
   font-style: normal;
@@ -44,12 +47,4 @@ body {
 .text {
   line-height: 1.8;
   max-width: 50rem;
-}
-
-.header__nav ul {
-  padding: 0;
-}
-
-.hero {
-  max-width: 35rem;
 }

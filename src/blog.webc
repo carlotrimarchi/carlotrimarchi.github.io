@@ -1,5 +1,7 @@
 ---
 layout: layout.webc
+pageTitle: Blog
+mainTitle: Blog
 ---
 
-blog
+<hero :title="mainTitle"></hero>
