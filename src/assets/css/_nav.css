@@ -1,0 +1,24 @@
+.header__nav {
+  align-items: center;
+  background-color: var(--color-yellow);
+  border-bottom: 1px solid var(--color-black);
+  display: flex;
+  justify-content: space-between;
+  padding: 0.2em;
+  text-transform: lowercase;
+}
+
+.header__nav a {
+  text-decoration: none;
+}
+
+.header__nav > a {
+  color: var(--color-black);
+  font-family: var(--font-base);
+  font-size: 1.5rem;
+}
+
+.header__nav ul {
+  margin: 0;
+  padding: 0;
+}
