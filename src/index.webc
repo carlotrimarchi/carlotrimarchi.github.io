@@ -1,8 +1,11 @@
 ---
 layout: layout.webc
 title: home
+mainTitle: I'm a software engineer, educator, and slow Rubik's Cube solver.
+subTitle: I specialise in <span class="strong">full-stack web development</span>, have a passion for <span class="strong">teaching</span>, and a dubious past as a <span class="strong">webcomic developer</span>. Like this website, I'm a continuous work in progress.
 ---
 
+<hero :title="mainTitle" :subtitle="subTitle"></hero>
 <div class="hero hero__grid">
 	<div class="header">
 		<div class="open"><img src="./assets/parentesi.svg" /></div>
