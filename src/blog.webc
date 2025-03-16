@@ -2,7 +2,6 @@
 layout: layout.webc
 pageTitle: Blog
 mainTitle: Blog
-subTitle: Blog subtitle
 ---
 
-<hero :title="mainTitle" :subtitle="subTitle"></hero>
+<hero :title="mainTitle"></hero>

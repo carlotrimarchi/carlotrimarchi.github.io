@@ -1,10 +1,10 @@
 <div class="hero hero__grid">
 	<div class="header">
 		<div class="open"><img src="/assets/parentesi.svg" /></div>
-		<h1 @html="title"></h1> 
+		<div class="content"><h1 @html="title"></h1></div>
 	</div>
-	<div class="sub-header">
-		<p @html="subtitle"></p>
+	<div webc:if="subtitle" class="sub-header">
+		<div class="content"><p @html="subtitle"></p></div>
 		<div class="close"><img src="/assets/parentesi.svg" /></div>
 	</div>
 </div>

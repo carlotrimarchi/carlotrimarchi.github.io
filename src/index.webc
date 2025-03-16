@@ -6,17 +6,3 @@ subTitle: I specialise in <span class="strong">full-stack web development</span>
 ---
 
 <hero :title="mainTitle" :subtitle="subTitle"></hero>
-<div class="hero hero__grid">
-	<div class="header">
-		<div class="open"><img src="./assets/parentesi.svg" /></div>
-		<p>
-			I'm a software engineer, educator, and slow Rubik's Cube solver.
-		</p> 
-	</div>
-	<div class="sub-header">
-		<p>
-			I specialise in full-stack web development, have a passion for teaching, and a dubious past as a webcomic developer. Like this website, I'm a continuous work in progress.
-		</p>
-		<div class="close"><img src="./assets/parentesi.svg" /></div>
-	</div>
-</div>
