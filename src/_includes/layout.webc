@@ -17,13 +17,19 @@ baseUrl: "{{ baseUrl }}"
   <body> 
 	<header class="wrapper">
 			<nav class="header__nav" aria-label="primary">
+				<a class="logo" href="/">Carlo Trimarchi</a>
 				<ul class="cluster" role="list">
 				    <li webc:for="item of navigation.items">
 				      <a :href="item.url" @raw="item.text"></a>
 				    </li>
 				</ul>
 			</nav>
+
+<!--
+	<page-header :@title="this.pageTitle" webc:nokeep></page-header>
+	-->
 	</header>
+
 
 	<div class="wrapper" @raw="content"></div>
   </body>

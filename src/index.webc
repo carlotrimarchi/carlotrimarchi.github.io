@@ -1,12 +1,19 @@
 ---
 layout: layout.webc
+title: home
 ---
 
-<div class="hero">
-	<h1>Carlo Trimarchi</h1>
-	<p>Software Engineer / Teacher / Slow Rubik's Cube Solver</p>
-	<p>
-		Hi, I'm Carlo 👋<br>
-		I'm a software engineer based in Berlin. I specialise in full-stack web development and have a passion for teaching. I like comics, dinosaurs, and working on lots of side projects — some of which I even finish.
-	</p>
+<div class="hero hero__grid">
+	<div class="header">
+		<div class="open"><img src="./assets/parentesi.svg" /></div>
+		<p>
+			I'm a software engineer, educator, and slow Rubik's Cube solver.
+		</p> 
+	</div>
+	<div class="sub-header">
+		<p>
+			I specialise in full-stack web development, have a passion for teaching, and a dubious past as a webcomic developer. Like this website, I'm a continuous work in progress.
+		</p>
+		<div class="close"><img src="./assets/parentesi.svg" /></div>
+	</div>
 </div>
