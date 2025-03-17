@@ -1,0 +1,48 @@
+---
+layout: layout.webc
+pageTitle: Work
+mainTitle: Work
+pagination:
+  data: collections.works
+  size: 8
+  alias: works
+---
+
+<hero :title="mainTitle"></hero>
+
+
+<script webc:type="render" webc:is="template">
+function () {
+  const works = this.pagination.items;
+    return `
+      <ul class="work">
+        ${works.map(work => `
+		<li class="grid">
+			<span class="cell symbol">*</span>
+			<div class="cell main">
+				<div class="work-data">
+					<div class="date">${work.data.start} - ${work.data.end}</div>
+					<div class="role">${work.data.role}</div>
+				</div>
+				<div class="work__content">
+					<a class="work-title" href="${work.data.url}">${work.data.name}</a>
+					<div class="link">${work.data.website}</div>
+					<p class="work-description">${work.data.description}</p>
+						<ul class="tags">
+${work.data.tags.map((tag) => `<li>${tag}</li>`).join("")}
+						</ul>
+				</div>
+			</div>
+		</li>
+`).join("")}
+      </ul>
+    `;}
+</script>
+
+<!--
+<ul>
+	<li webc:for="work in collections.works">
+		<span @text="work.data.name" webc:nokeep></span>
+	</li>
+</ul>
+-->
