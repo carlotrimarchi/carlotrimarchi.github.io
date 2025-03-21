@@ -71,10 +71,6 @@ body {
   border-right: 0;
 }
 
-.work .grid {
-  grid-template-columns: auto 1fr;
-}
-
 .work-title {
   color: var(--color-black);
   font-size: var(--step-5);
@@ -98,22 +94,18 @@ body {
   padding: 0.1rem 0.75rem;
 }
 
-.work-data {
-  display: flex;
-  font-size: var(--step--1);
+.svg-sprite {
+  display: none;
 }
 
-.work-data > * {
-  border-width: 0 1px 1px 0;
-  border-style: solid;
-  border-color: var(--color-black);
-  padding: var(--space-2xs);
+svg {
+  max-width: 100%;
 }
 
-.cell.symbol {
-  font-size: 10rem;
+.center-v {
+  align-content: center;
 }
 
-.work__content {
-  padding: 1rem;
+.flow > * + * {
+  margin-top: var(--space-m);
 }

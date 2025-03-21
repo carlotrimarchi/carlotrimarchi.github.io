@@ -5,7 +5,12 @@ templateEngineOverride: njk
 <ul class="work">
   {% for work in works %}
     <li>
-		<span class="star">*</span>
+		<span class="star">
+		  <svg>
+		    <use href="#star"></use>
+		  </svg>
+     
+    </span>
 		<div class="content">
 			<a class="work-title" href="{{ work.url }}">{{ work.data.name }}</a>
 			<p class="work-description">{{work.data.description}}</p>
