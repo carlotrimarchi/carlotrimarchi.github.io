@@ -12,3 +12,8 @@
 .rotate-180 {
   transform: rotate(180deg);
 }
+
+.content {
+  display: grid;
+  align-content: center;
+}

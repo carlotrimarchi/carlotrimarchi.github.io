@@ -1,0 +1,3 @@
+<svg :class="this.class ? this.class : ''">
+    <use :href="id"></use>
+</svg>

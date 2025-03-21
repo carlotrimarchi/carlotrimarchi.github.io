@@ -12,9 +12,10 @@ baseUrl: "{{ baseUrl }}"
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap" rel="stylesheet" webc:keep>
-    <link rel="stylesheet" href="/assets/css/main.css" webc:keep />
+    <link rel="stylesheet" href="/assets/css/main.css?blakfdjals" webc:keep />
   </head>
   <body> 
+      <svg-sprite></svg-sprite>
 	<header class="wrapper">
 			<nav class="header__nav" aria-label="primary">
 				<a class="logo" href="/">carlo_trimarchi</a>

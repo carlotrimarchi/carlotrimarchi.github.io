@@ -1,17 +1,22 @@
 <div class="hero">
 	<div class="grid header">
-		<div class="grid__cell"> <img src="/assets/parentesi.svg" />
+		<div class="grid__cell grid__cell--icon bracket">
+			<svg-icon id="#curly"></svg-icon>
 		</div>
-		<div class="grid__cell content">
-			<h1 @html="title"></h1>
+		<div class="grid__cell center-v">
+			<div class="grid__content">
+				<h1 @html="title"></h1>
+			</div>
 		</div>
 	</div>
 	<div webc:if="subtitle" class="grid grid--reverse sub-header">
-		<div class="grid__cell content">
-			<p @html="subtitle"></p>
+		<div class="grid__cell center-v">
+			<div class="grid__content">
+				<p @html="subtitle"></p>
+			</div>
 		</div>
-		<div class="grid__cell">
-			<img class="rotate-180" src="/assets/parentesi.svg" />
+		<div class="grid__cell grid__cell--icon bracket">
+			<svg-icon class="rotate-180" id="#curly"></svg-icon>
 		</div>
 	</div>
 </div>

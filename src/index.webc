@@ -1,8 +1,28 @@
 ---
 layout: layout.webc
 title: home
-mainTitle: I'm a software engineer, educator, and slow Rubik's Cube solver.
+mainTitle: I'm a software engineer, educator, and <span id="dynamic-title">slow Rubik's Cube solver</span>.
 subTitle: I specialise in <span class="strong">full-stack web development</span>, have a passion for <span class="strong">teaching</span>, and a dubious past as a <span class="strong">webcomic developer</span>. Like this website, I'm a continuous work in progress.
 ---
 
 <hero :title="mainTitle" :subtitle="subTitle"></hero>
+
+<script webc:keep>
+function setRandomTitle() {
+	const titles = [
+		"slow Rubik's Cube solver",
+		"professional chess blunderer",
+		"mediocre guitarist",
+		"poor ukulele player",
+		"nap enthusiast",
+		"unqualified dinosaur expert",
+		"senior (neo)vim novice"
+	];
+	const titleElement = document.getElementById("dynamic-title");
+	if (!titleElement) return;
+
+	const randomTitle = titles[Math.floor(Math.random() * titles.length)];
+	titleElement.textContent = randomTitle;
+}
+document.addEventListener("DOMContentLoaded", setRandomTitle);
+</script>

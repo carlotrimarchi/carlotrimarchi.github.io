@@ -11,6 +11,7 @@ pagination:
 <hero :title="mainTitle"></hero>
 
 
+<!--
 <script webc:type="render" webc:is="template">
 function () {
   const works = this.pagination.items;
@@ -18,19 +19,15 @@ function () {
       <ul class="work">
         ${works.map(work => `
 		<li class="grid">
-			<span class="cell symbol">*</span>
-			<div class="cell main">
-				<div class="work-data">
+			<span class="grid__cell grid__cell--icon star">
+		  <svg>
+		    <use href="#star"></use>
+		  </svg>
+</span>
+			<div class="grid__cell main">
+				<div class="grid__extra">
 					<div class="date">${work.data.start} - ${work.data.end}</div>
 					<div class="role">${work.data.role}</div>
-				</div>
-				<div class="work__content">
-					<a class="work-title" href="${work.data.url}">${work.data.name}</a>
-					<div class="link">${work.data.website}</div>
-					<p class="work-description">${work.data.description}</p>
-						<ul class="tags">
-${work.data.tags.map((tag) => `<li>${tag}</li>`).join("")}
-						</ul>
 				</div>
 			</div>
 		</li>
@@ -38,11 +35,31 @@ ${work.data.tags.map((tag) => `<li>${tag}</li>`).join("")}
       </ul>
     `;}
 </script>
+-->
 
-<!--
-<ul>
-	<li webc:for="work in collections.works">
-		<span @text="work.data.name" webc:nokeep></span>
+<ul class="work">
+	<li class="grid" webc:for="work of collections.works">
+		<span class="grid__cell grid__cell--icon star">
+		  <svg-icon id="#star"></svg-icon>
+		</span>
+		<div class="grid__cell main">
+			<div class="grid__extra">
+				<div class="date">
+					<span @html="work.data.start" webc:nokeep></span>
+					- 
+					<span @raw="work.data.end" webc:nokeep></span>
+				</div>
+				<div class="role" @raw="work.data.role"></div>
+			</div>
+
+			<div class="grid__content flow">
+				<a class="work-title" :href="work.data.website" @raw="work.data.name"></a>
+				<p class="work-description" @raw="work.data.description"></p>
+
+				<ul class="tags">
+					<li webc:for="tag of work.data.tags" @raw="tag"></li>
+				</ul>
+			</div>
+		</div>
 	</li>
 </ul>
--->
