@@ -1,8 +1,13 @@
+@media (min-width: 500px) {
+  .header__nav {
+    display: flex;
+  }
+}
+
 .header__nav {
   align-items: center;
   background-color: var(--color-yellow);
   border-bottom: 1px solid var(--color-black);
-  display: flex;
   justify-content: space-between;
   padding: var(--space-s) 0;
   text-transform: lowercase;

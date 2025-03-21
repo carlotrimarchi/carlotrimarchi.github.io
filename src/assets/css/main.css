@@ -54,26 +54,15 @@ body {
   padding: 0;
 }
 
-.grid {
-  display: grid;
-  border-width: 0 0 1px 0;
-  border-style: solid;
-  border-color: var(--color-black);
-}
-
-.grid .cell {
-  border-width: 0 1px 0 0;
-  border-style: solid;
-  border-color: var(--color-black);
-}
-
-.grid .cell:last-child {
-  border-right: 0;
+@media (min-width: 600px) {
+  .work-title {
+    font-size: var(--step-5);
+  }
 }
 
 .work-title {
   color: var(--color-black);
-  font-size: var(--step-5);
+  font-size: var(--step-3);
 }
 
 .tags {
