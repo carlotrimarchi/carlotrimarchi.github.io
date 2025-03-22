@@ -98,3 +98,7 @@ svg {
 .flow > * + * {
   margin-top: var(--space-m);
 }
+
+.strong {
+  font-weight: 700;
+}
