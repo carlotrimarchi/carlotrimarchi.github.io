@@ -65,6 +65,10 @@
     grid-template-columns: 120px 1fr 120px;
   }
 
+  .grid__content {
+    padding: var(--space-l);
+  }
+
   .grid__cell {
     border-right-color: var(--color-black);
     border-right-style: solid;

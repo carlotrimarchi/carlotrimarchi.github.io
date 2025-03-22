@@ -1,6 +1,12 @@
 import pluginWebc from "@11ty/eleventy-plugin-webc";
 
 export default function (eleventyConfig) {
+  eleventyConfig.addShortcode("pageTitle", function (title) {
+    const base = "Carlo Trimarchi";
+    const fallback = `${base} | Software Engineer`;
+    return title ? `${title} | ${base}` : fallback;
+  });
+
   eleventyConfig.addCollection("works", function (collectionApi) {
     const result = collectionApi.getFilteredByGlob("src/work/*.md");
     console.log(result);
