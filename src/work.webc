@@ -1,6 +1,6 @@
 ---
 layout: layout.webc
-pageTitle: Work
+title: Work
 mainTitle: Work
 pagination:
   data: collections.works
