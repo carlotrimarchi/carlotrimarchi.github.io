@@ -22,10 +22,10 @@ jobs:
           node-version: 20
 
       - name: Install dependencies
-        uses: npm ci
+        run: npm ci
 
       - name: Build Eleventy Site
-        uses: npm run build
+        run: npm run build
 
       - name: Upload artifacts
         uses: actions/upload-pages-artifact@v3
