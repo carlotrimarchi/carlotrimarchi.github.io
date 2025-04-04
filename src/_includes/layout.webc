@@ -32,5 +32,6 @@ baseUrl: "{{ baseUrl }}"
 
 
 	<div class="wrapper" @raw="content"></div>
+      <page-footer></page-footer>
   </body>
 </html>
