@@ -50,6 +50,7 @@ function () {
 					<span @raw="work.data.end" webc:nokeep></span>
 				</div>
 				<div class="role" @raw="work.data.role"></div>
+				<div class="role" @raw="work.data.employmentType"></div>
 			</div>
 
 			<div class="grid__content flow">

@@ -9,7 +9,7 @@ export default function (eleventyConfig) {
 
   eleventyConfig.addCollection("works", function (collectionApi) {
     const result = collectionApi.getFilteredByGlob("src/work/*.md");
-    console.log(result);
+    result.sort((a, b) => Number(b.data.end) - Number(a.data.end));
     return result;
   });
 

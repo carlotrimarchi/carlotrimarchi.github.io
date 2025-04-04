@@ -28,6 +28,7 @@
 
 .grid__extra {
   display: flex;
+  flex-wrap: wrap;
   font-size: var(--step--1);
 }
 

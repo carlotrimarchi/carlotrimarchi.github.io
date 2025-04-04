@@ -1,8 +1,9 @@
 ---
 name: ERCcOMICS
 website: https://www.erccomics.com/
-description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco labori
-role: Full-stack Web Developer, Freelance
+description: <p>ERCcOMICS was an EU-funded science communication initiative supported by the European Research Council (ERC). Its goal was to make complex research projects engaging, fun, and accessible to a wider audience through experimental, interactive, and immersive webcomics.</p> <p>The project ran for four years, and as the sole developer, I was responsible for creating the entire publishing platform. I collaborated closely with a remote, international team of researchers, artists, and project coordinators to implement the interactions and animations that brought each story to life on the web.</p>
+role: Full-stack Web Developer
+employmentType: contract
 start: 2014
 end: 2019
 tags:
@@ -19,5 +20,4 @@ tags:
     "Parallax",
     "Scrollytelling",
   ]
-url: bla
 ---

@@ -1,9 +1,10 @@
 ---
 name: The Independent Photographer
 website: https://independent-photo.com/
-role: Wordpress Developer, Freelance
-description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco labori
+role: Full-stack Wordpress Developer
+employmentType: freelance
+description: The Independent Photographer is an international platform and competition for emerging and established photographers. My work there focused primarily on the front end, improving the look and feel, enhancing the usability of key sections, building a more feature-rich upload process, and working on a Facebook integration.
 start: 2020
 end: 2022
-tags: []
+tags: ["PHP", "WordPress", "JavaScript", "CSS"]
 ---
