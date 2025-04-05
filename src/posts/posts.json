@@ -1,0 +1,4 @@
+{
+  "layout": "post.webc",
+  "permalink": "blog/{{ title | slug }}/"
+}

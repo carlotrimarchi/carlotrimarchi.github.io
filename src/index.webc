@@ -1,7 +1,7 @@
 ---
 layout: layout.webc
 mainTitle: I'm a software engineer, educator, and <span id="random-title">slow Rubik's Cube solver</span>.
-subTitle: I specialise in <span class="strong">full-stack web development</span>, have a passion for <span class="strong">teaching</span>, and a dubious past as a <span class="strong">webcomic developer</span>. Like this website, I'm a continuous work in progress.
+subTitle: I specialise in <span class="strong">full-stack web development</span>, have a passion for <span class="strong">teaching</span>, and a dubious past as a <span class="strong">webcomic developer</span>. Like this website, I'm a <a href="blog/work-in-progress">continuous work in progress</a>.
 ---
 
 <hero :title="mainTitle" :subtitle="subTitle"></hero>
@@ -12,7 +12,7 @@ function setRandomTitle() {
 		"junior Rubik's Cube solver",
 		"professional chess blunderer",
 		"experienced three-chord guitar strummer",
-		"senior nap ops",
+		"senior nap ops specialist",
 		"unqualified dinosaur expert",
 		"senior (neo)vim novice"
 	];
