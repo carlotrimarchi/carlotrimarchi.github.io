@@ -13,6 +13,11 @@ export default function (eleventyConfig) {
     return result;
   });
 
+  eleventyConfig.addCollection("posts", function (collectionApi) {
+    const result = collectionApi.getFilteredByGlob("src/posts/*.md");
+    return result;
+  });
+
   eleventyConfig.addPlugin(pluginWebc, {
     components: "src/_components/**/*.webc",
   });
@@ -31,6 +36,15 @@ export default function (eleventyConfig) {
     dir: {
       input: "src",
       output: "dist",
+      includes: "_includes",
     },
+    defaults: [
+      {
+        directory: "posts",
+        data: {
+          layout: "post.webc",
+        },
+      },
+    ],
   };
 }

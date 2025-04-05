@@ -2,6 +2,24 @@
 layout: layout.webc
 title: Blog
 mainTitle: Blog
+pagination:
+  data: collections.posts
+  size: 8
+  alias: posts
 ---
 
 <hero :title="mainTitle"></hero>
+
+<ul class="list">
+	<li class="grid" webc:for="post of collections.posts">
+		<span class="grid__cell grid__cell--icon star">
+		  <svg-icon id="#star"></svg-icon>
+		</span>
+		<div class="grid__cell main">
+			<div class="grid__content flow">
+				<h2 class="post-title"><a :href="post.url" @raw="post.data.title"></a></h2>
+				<div class="text" @raw="post.content"></div>
+			</div>
+		</div>
+	</li>
+</ul>
