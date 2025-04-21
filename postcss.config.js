@@ -4,5 +4,12 @@ import autoPrefixer from "autoprefixer";
 import cssnano from "cssnano";
 
 export default {
-  plugins: [postcssImportExtGlob, autoPrefixer, postcssImport, cssnano],
+  plugins: [
+    postcssImport({
+      addModulesDirectories: ["node_modules"],
+    }),
+    postcssImportExtGlob,
+    autoPrefixer,
+    cssnano,
+  ],
 };

@@ -1,0 +1,20 @@
+<div webc:root="override">
+	<div class="title">Website title</div>
+	<div class="subtitle">This website is about...</div>
+</div>
+
+<style webc:scoped>
+	:host {
+		border: 1px solid black;
+		font-family: Arial;
+		padding: var(--space-m);
+	}
+
+	:host .title {
+		font-size: var(--step-3);
+	}
+
+	:host .subtitle {
+		font-size: var(--step-1);
+	}
+</style>
