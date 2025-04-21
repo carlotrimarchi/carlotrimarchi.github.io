@@ -1,6 +1,7 @@
 ---
 title: Work in progress
 mainTitle: Work in progress
+teaser: Of laziness, procrastination, and perfectionism. But mostly laziness.
 ---
 
 It took me about ten years to design, build, and finally publish this website. The actual work happened over the past two months; the previous one hundred and eighteen were mostly a mix of procrastination, laziness, second-guessing, and indecisiveness.

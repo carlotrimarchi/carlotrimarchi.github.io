@@ -1,8 +1,13 @@
+@import "prismjs/themes/prism-okaidia.css";
 @import "_reset.css";
 @import "_variables.css";
 @import "_grid.css";
 @import "_nav.css";
 @import "_hero.css";
+
+:where(body, h1, h2, h3, h4, p, figure, blockquote, dl, dd) {
+  margin-block: 0;
+}
 
 body {
   background-color: var(--color-yellow);
@@ -102,7 +107,7 @@ svg {
 }
 
 .flow > * + * {
-  margin-top: var(--space-m);
+  margin-top: var(--flow-space, 1rem);
 }
 
 .strong {
@@ -118,4 +123,8 @@ svg {
   list-style-type: none;
   margin: 0;
   padding: 0;
+}
+
+.italic {
+  font-style: italic;
 }

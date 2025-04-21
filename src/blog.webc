@@ -1,9 +1,9 @@
 ---
-layout: layout.webc
-title: Blog
-mainTitle: Blog
+layout: "layout.webc"
+title: "Blog"
+mainTitle: "Blog"
 pagination:
-  data: collections.posts
+  data: collections.posts 
   size: 8
   alias: posts
 ---
@@ -15,10 +15,13 @@ pagination:
 		<span class="grid__cell grid__cell--icon star">
 		  <svg-icon id="#star"></svg-icon>
 		</span>
-		<div class="grid__cell main">
+		<div class="grid__cell">
 			<div class="grid__content flow">
-				<h2 class="post-title"><a :href="post.url" @raw="post.data.title"></a></h2>
-				<div class="text" @raw="post.content"></div>
+				<div class="flow" style="--flow-space: var(--space-s)">
+					<h2 class="post-title"><a :href="post.url" @raw="post.data.title"></a></h2>
+					<p class="italic">Posted on <time :datetime="dateAttribute(post.date)" @raw="postDate(post.date)"></time></p>
+				</div>
+				<p class="text" @html="post.data.teaser"></p>
 			</div>
 		</div>
 	</li>
