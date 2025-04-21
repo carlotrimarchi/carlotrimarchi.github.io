@@ -116,7 +116,11 @@ export default function (eleventyConfig) {
   //   "./src/assets/css": "./assets/css", // Ensure the correct path
   // });
   eleventyConfig.addPassthroughCopy("./src/assets/**/*.svg");
-
+  eleventyConfig.addPassthroughCopy({
+    "src/favicon.ico": "favicon.ico",
+    "src/icon.svg": "icon.svg",
+    "src/apple-touch-icon.png": "apple-touch-icon.png",
+  });
   const baseUrl =
     process.env.ELEVENTY_ENV === "production" ? "/subdirectory" : "";
 
