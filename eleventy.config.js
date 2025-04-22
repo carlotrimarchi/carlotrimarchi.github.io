@@ -3,42 +3,24 @@ import "tsx/esm";
 import { register } from "node:module";
 import pluginWebc from "@11ty/eleventy-plugin-webc";
 import { RenderPlugin } from "@11ty/eleventy";
-import { renderToStaticMarkup } from "react-dom/server";
 import syntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 
-import path from "node:path";
-import { pathToFileURL } from "node:url";
-import { jsx } from "react/jsx-runtime";
 import vm from "node:vm";
-import fs from "node:fs";
-import { compile } from "@mdx-js/mdx";
-import * as runtime from "react/jsx-runtime";
-import rehypePrism from "rehype-prism-plus";
-import remarkGfm from "remark-gfm";
 
-import setupdMdxExtension from "./config/extensions/mdx.js";
+import setupShortcodes from "./config/shortcodes.js";
+import setupFilters from "./config/filters.js";
+import setupMdxExtension from "./config/extensions/mdx.js";
 
 register("@mdx-js/node-loader", import.meta.url, {
   rehypePlugins: [rehypePrism],
 });
 
 export default function (eleventyConfig) {
-  setupdMdxExtension(eleventyConfig);
-  eleventyConfig.addPlugin(syntaxHighlight);
+  setupShortcodes(eleventyConfig);
+  setupFilters(eleventyConfig);
+  setupMdxExtension(eleventyConfig);
 
-  // eleventyConfig.addExtension("mdx", {
-  //   key: "11ty.js",
-  //   compile: async function (_, inputPath) {
-  //     const mod = await import(inputPath);
-  //     const Component = mod.default;
-  //
-  //     return async function () {
-  //       const html = renderToStaticMarkup(Component());
-  //       console.log(html); // Check if code blocks are tokenized
-  //       return html;
-  //     };
-  //   },
-  // });
+  eleventyConfig.addPlugin(syntaxHighlight);
 
   eleventyConfig.addExtension(["11ty.jsx", "11ty.ts", "11ty.tsx"], {
     key: "11ty.js",
@@ -48,12 +30,6 @@ export default function (eleventyConfig) {
         return renderToStaticMarkup(content);
       };
     },
-  });
-
-  eleventyConfig.addShortcode("pageTitle", function (title) {
-    const base = "Carlo Trimarchi";
-    const fallback = `${base} | Software Engineer`;
-    return title ? `${title} | ${base}` : fallback;
   });
 
   eleventyConfig.addGlobalData("webcRender", async function (content) {
@@ -100,20 +76,6 @@ export default function (eleventyConfig) {
 
   // Add baseUrl as global data to be used in templates
   eleventyConfig.addGlobalData("baseUrl", baseUrl);
-
-  eleventyConfig.addFilter("postDate", (dateObj) => {
-    const options = {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    };
-    const date = new Date(dateObj).toLocaleDateString("en-IE", options);
-    return date;
-  });
-
-  eleventyConfig.addFilter("dateAttribute", (date) => {
-    return new Date(date).toISOString().slice(0, 10);
-  });
 
   return {
     dir: {
