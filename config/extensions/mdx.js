@@ -7,6 +7,11 @@ import remarkGfm from "remark-gfm";
 import { renderToStaticMarkup } from "react-dom/server";
 import * as runtime from "react/jsx-runtime";
 import { jsx } from "react/jsx-runtime";
+import { register } from "node:module";
+
+register("@mdx-js/node-loader", import.meta.url, {
+  rehypePlugins: [rehypePrism],
+});
 
 export default function setupMdxExtension(eleventyConfig) {
   eleventyConfig.addExtension("mdx", {
