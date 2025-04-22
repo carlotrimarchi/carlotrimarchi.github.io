@@ -16,41 +16,15 @@ import * as runtime from "react/jsx-runtime";
 import rehypePrism from "rehype-prism-plus";
 import remarkGfm from "remark-gfm";
 
+import setupdMdxExtension from "./config/extensions/mdx.js";
+
 register("@mdx-js/node-loader", import.meta.url, {
   rehypePlugins: [rehypePrism],
 });
 
 export default function (eleventyConfig) {
+  setupdMdxExtension(eleventyConfig);
   eleventyConfig.addPlugin(syntaxHighlight);
-
-  eleventyConfig.addExtension("mdx", {
-    key: "11ty.js",
-    async compile(_, inputPath) {
-      const file = await fs.promises.readFile(inputPath, "utf8");
-
-      const absolutePath = path.resolve(inputPath);
-
-      const compiled = await compile(file, {
-        outputFormat: "function-body",
-        useDynamicImport: true,
-        remarkPlugins: [remarkGfm],
-        rehypePlugins: [rehypePrism],
-        baseUrl: pathToFileURL(absolutePath),
-        //baseUrl: new URL(inputPath, "file://"),
-      });
-
-      const createModule = new Function(
-        "React",
-        `return (async () => { ${compiled.value} })()`,
-      );
-
-      const { default: Content } = await createModule(runtime); // ✅ Evaluate the wrapped async module
-
-      return async function () {
-        return renderToStaticMarkup(jsx(Content, {}));
-      };
-    },
-  });
 
   // eleventyConfig.addExtension("mdx", {
   //   key: "11ty.js",
@@ -65,7 +39,6 @@ export default function (eleventyConfig) {
   //     };
   //   },
   // });
-  eleventyConfig.addTemplateFormats("mdx");
 
   eleventyConfig.addExtension(["11ty.jsx", "11ty.ts", "11ty.tsx"], {
     key: "11ty.js",
@@ -104,6 +77,7 @@ export default function (eleventyConfig) {
       "src/posts/**/*.md",
       "src/posts/**/*.mdx",
     ]);
+    console.log(result);
     result.sort((a, b) => b.date - a.date);
     return result;
   });
