@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "build:demos": "node scripts/build-demos.js",
+    "build": "npm run build:demos && eleventy && npm run build:css",
     "build:css": "postcss src/assets/css/main.css -o dist/assets/css/main.css",
     "watch:css": "npm run build:css -- --watch",
-    "build": "eleventy && npm run build:css",
     "start": "ELEVENTY_ENV=development eleventy --serve & npm run watch:css"
   },
   "keywords": [],
@@ -18,6 +19,7 @@
     "@11ty/eleventy-plugin-webc": "^0.11.2",
     "autoprefixer": "^10.4.21",
     "cssnano": "^7.0.6",
+    "esbuild": "^0.27.3",
     "postcss": "^8.5.3",
     "postcss-cli": "^11.0.1",
     "postcss-import": "^16.1.0",

@@ -1,0 +1,19 @@
+/* for inline code tag */
+code {
+	background: var(--color-black);
+	color: white;
+	padding: 0 var(--space-3xs);
+}
+
+.code-block {
+	border: 1px solid;
+}
+
+.code-block__header {
+	padding: var(--space-3xs) var(--space-m);
+}
+
+.code-block pre {
+	border-radius: 0;
+	margin: 0;
+}
