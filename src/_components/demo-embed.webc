@@ -1,20 +1,22 @@
-<div webc:root="override">
-	<div class="title">Website title</div>
-	<div class="subtitle">This website is about...</div>
+<div class="demo-block" webc:root="override">
+	<div class="demo-block__header cluster repel">
+		<span aria-hidden="true">&lt;/&gt;</span>
+		<dl>
+			<dt class="visually-hidden">Demo</dt>
+			<dd @text="name"></dd>
+		</dl>
+	</div>
+	<div class="demo-block__content">
+		<slot></slot>
+	</div>
 </div>
 
 <style webc:scoped>
-	:host {
-		border: 1px solid black;
-		font-family: Arial;
+	.demo-block {
+		display: block;
+		border: 1px solid;
+	}
+	.demo-block__content {
 		padding: var(--space-m);
-	}
-
-	:host .title {
-		font-size: var(--step-3);
-	}
-
-	:host .subtitle {
-		font-size: var(--step-1);
 	}
 </style>

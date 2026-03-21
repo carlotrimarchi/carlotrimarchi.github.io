@@ -9,6 +9,7 @@ export default function setupCollections(eleventyConfig) {
     const result = collectionApi.getFilteredByGlob([
       "src/posts/**/*.md",
       "src/posts/**/*.mdx",
+      "src/posts/**/index.webc",
     ]);
     result.sort((a, b) => b.date - a.date);
     return result;

@@ -1,4 +1,3 @@
-// scripts/build-demos.js
 import esbuild from "esbuild";
 import { glob } from "fs/promises";
 
