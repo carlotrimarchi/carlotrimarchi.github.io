@@ -9,6 +9,8 @@ import setupMdxExtension from "./config/extensions/mdx.js";
 import setupJsxExtension from "./config/extensions/jsx.js";
 
 export default function (eleventyConfig) {
+  const isDevelopment = process.env.ELEVENTY_ENV === "development";
+
   setupPlugins(eleventyConfig);
   setupCollections(eleventyConfig);
   setupShortcodes(eleventyConfig);
@@ -16,6 +18,14 @@ export default function (eleventyConfig) {
   setupFilters(eleventyConfig);
   setupMdxExtension(eleventyConfig);
   setupJsxExtension(eleventyConfig);
+
+  eleventyConfig.ignores.add("src/posts/**/_demos/**");
+  eleventyConfig.ignores.add("**/posts/**/_demos/**");
+
+  if (!isDevelopment) {
+    eleventyConfig.ignores.add("src/posts/_tests/**");
+    eleventyConfig.ignores.add("**/posts/_tests/**");
+  }
 
   eleventyConfig.addPassthroughCopy("./src/assets/**/*.svg");
   eleventyConfig.addPassthroughCopy({
@@ -30,13 +40,5 @@ export default function (eleventyConfig) {
       output: "dist",
       includes: "_includes",
     },
-    defaults: [
-      {
-        directory: "posts",
-        data: {
-          layout: "post.webc",
-        },
-      },
-    ],
   };
 }
