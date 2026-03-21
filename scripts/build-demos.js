@@ -1,7 +1,7 @@
 import esbuild from "esbuild";
-import { glob } from "fs/promises";
+import { glob } from "glob";
 
-const demos = await Array.fromAsync(glob("src/_demos/**/*.jsx"));
+const demos = await glob("src/_demos/**/*.jsx");
 
 if (demos.length === 0) {
   console.log("No demos found, skipping.");
