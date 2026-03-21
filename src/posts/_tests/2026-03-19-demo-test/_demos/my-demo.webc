@@ -1,0 +1,11 @@
+<div class="demo" webc:root="override">
+	<p>Demo content here</p>
+</div>
+
+<style webc:scoped>
+	:host {
+		padding: 1rem;
+		border: 1px solid #ddd;
+		border-radius: 4px;
+	}
+</style>

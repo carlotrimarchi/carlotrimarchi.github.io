@@ -1,0 +1,22 @@
+---
+title: TEST - demo test
+mainTitle: TEST - demo test
+teaser: Test demo-embed in webc blog post. This test fails at the moment
+---
+
+# this is markdown
+
+- bullet 1
+- bullet 2
+- bullet 3
+
+test demo
+
+<demo-embed name="demo-1">
+	<my-demo></my-demo>
+</demo-embed>
+
+
+```js
+let x = 12;
+```
