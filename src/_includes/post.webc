@@ -10,3 +10,5 @@ layout: layout.webc
 		<div class="grid__content flow text" @html="content"></div>
 	</div>
 </div>
+
+<script src="/assets/js/demo-toggle.js" defer webc:keep></script>
