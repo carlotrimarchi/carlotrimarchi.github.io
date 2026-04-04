@@ -17,16 +17,20 @@ export default async function setupPlugins(eleventyConfig) {
     const token = tokens[idx];
     const lang = token.info.trim().split(/\s+/)[0] || "code";
     const inner = defaultFence(tokens, idx, options, env, self);
-    return `<div class="code-block">
-  <div class="code-block__header cluster repel">
-<span aria-hidden="true">&lt;/&gt;</span>
+    return `<figure class="code-block">
+  <figcaption class="code-block__header cluster repel">
+<span aria-hidden="true">
+<svg class="code-block__icon">
+  <use href="#code-snippet"></use>
+</svg>
+</span>
     <dl>
       <dt class="visually-hidden">Code language</dt>
       <dd>${lang}</dd>
     </dl>
-  </div>
+  </figcaption>
   ${inner}
-</div>`;
+</figure>`;
   };
 
   eleventyConfig.setLibrary("md", md);
