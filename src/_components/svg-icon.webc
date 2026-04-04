@@ -1,3 +1,8 @@
-<svg :class="this.class ? this.class : ''">
-    <use :href="id"></use>
+<svg
+	:class="this.class ? this.class : ''"
+	:viewBox="this.viewBox ? this.viewBox : null"
+	:width="this.width ? this.width : null"
+	:height="this.height ? this.height : null"
+>
+	<use :href="id && id.startsWith('#') ? id : `#${id}`"></use>
 </svg>

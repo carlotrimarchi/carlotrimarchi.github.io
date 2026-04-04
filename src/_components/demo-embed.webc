@@ -1,15 +1,20 @@
-<div class="demo-block" webc:root="override">
-	<div class="demo-block__header cluster repel">
-		<span aria-hidden="true">&lt;/&gt;</span>
+<figure class="demo-block" webc:root="override">
+	<figcaption class="demo-block__header cluster repel">
+		<span aria-hidden="true"
+			><svg-icon
+				class="demo-block__icon"
+				id="live-demo"
+			></svg-icon
+		></span>
 		<dl>
 			<dt class="visually-hidden">Demo</dt>
 			<dd @text="name"></dd>
 		</dl>
-	</div>
+	</figcaption>
 	<div class="demo-block__content">
 		<slot></slot>
 	</div>
-</div>
+</figure>
 
 <style webc:scoped>
 	.demo-block {
@@ -17,6 +22,5 @@
 		border: 1px solid;
 	}
 	.demo-block__content {
-		padding: var(--space-m);
 	}
 </style>
