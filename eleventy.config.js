@@ -19,6 +19,14 @@ export default function (eleventyConfig) {
   setupMdxExtension(eleventyConfig);
   setupJsxExtension(eleventyConfig);
 
+  eleventyConfig.addTransform("remove-empty-paragraphs", (content, outputPath) => {
+    if (!outputPath || !outputPath.endsWith(".html")) {
+      return content;
+    }
+
+    return content.replace(/<p>\s*<\/p>/g, "");
+  });
+
   eleventyConfig.ignores.add("src/posts/**/_demos/**");
   eleventyConfig.ignores.add("**/posts/**/_demos/**");
 
@@ -28,6 +36,14 @@ export default function (eleventyConfig) {
   }
 
   eleventyConfig.addPassthroughCopy("./src/assets/**/*.svg");
+  eleventyConfig.addPassthroughCopy({
+    "src/posts/**/!(_*).{png,jpg,jpeg,webp,avif,gif,svg}": "blog",
+  });
+  eleventyConfig.addPassthroughCopy({
+    "src/posts/2026-04-04-typst-the-developer-way-of-authoring-pdfs/example-cv.png":
+      "blog/typst-the-developer-way-of-authoring-pdfs/example-cv.png",
+  });
+  eleventyConfig.addPassthroughCopy("./src/assets/js/**/*.js");
   eleventyConfig.addPassthroughCopy({
     "src/favicon.ico": "favicon.ico",
     "src/icon.svg": "icon.svg",
