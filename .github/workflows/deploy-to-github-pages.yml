@@ -26,6 +26,8 @@ jobs:
 
             - name: Build Eleventy Site
               run: npm run build
+              env:
+                  SITE_URL: https://carlotrimarchi.it
 
             - name: Upload artifacts
               uses: actions/upload-pages-artifact@v4

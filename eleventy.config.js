@@ -35,7 +35,7 @@ export default function (eleventyConfig) {
     eleventyConfig.ignores.add("**/posts/_tests/**");
   }
 
-  eleventyConfig.addPassthroughCopy("./src/assets/**/*.svg");
+  eleventyConfig.addPassthroughCopy("./src/assets/**/!(_*).{png,jpg,jpeg,webp,avif,gif,svg}");
   eleventyConfig.addPassthroughCopy({
     "src/posts/**/!(_*).{png,jpg,jpeg,webp,avif,gif,svg}": "blog",
   });
