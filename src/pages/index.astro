@@ -1,15 +1,16 @@
 ---
-import Test from "../components/test";
-console.log('This runs in your terminal, not the browser!');
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Test from "@components/test";
+console.log("This runs in your terminal, not the browser!");
 ---
-<html>
-  <body>
-    <h1>Hello, World!</h1>
+
+<BaseLayout title="Carlo Trimarchi">
+	<h1>Hello, World!</h1>
 	<Test />
-  </body>
-</html>
+</BaseLayout>
+
 <style>
-  h1 {
-    color: orange;
-  }
+	h1 {
+		color: orange;
+	}
 </style>

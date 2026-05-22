@@ -1,0 +1,63 @@
+---
+baseUrl: "{{ baseUrl }}"
+interface Props {
+	title: string;
+}
+const { title} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="generator" :content="eleventy.generator" />
+		<meta
+			name="description"
+			:content="teaser || description || siteDescription || ''"
+		/>
+		<link
+			rel="canonical"
+			:href="(siteUrl || siteDefaultUrl) + (page.url || '/')"
+		/>
+		<template
+			webc:is="meta-social"
+			webc:nokeep
+			:meta="socialMeta"
+		></template>
+		<!-- <title @raw="pageTitle(title)"></title> -->
+		<title>{title}</title>
+		<link rel="icon" href="/favicon.ico" sizes="32x32" />
+		<link rel="icon" href="/icon.svg" type="image/svg+xml" />
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+		<link
+			rel="stylesheet"
+			href="/assets/css/main.css?blakfdjals"
+			webc:keep
+		/>
+		<style @html="this.getCSS(this.page.url)"></style>
+		<style @raw="getBundle('css')" webc:keep></style>
+	</head>
+	<body>
+		<svg-sprite></svg-sprite>
+		<header class="wrapper">
+			<nav class="header__nav" aria-label="primary">
+				<a class="logo" href="/">carlo_trimarchi</a>
+				<ul class="cluster" role="list">
+					<li webc:for="item of navigation.items">
+						<a :href="item.url" @raw="item.text"></a>
+					</li>
+				</ul>
+			</nav>
+
+			<!--
+	<page-header :@title="this.pageTitle" webc:nokeep></page-header>
+	-->
+		</header>
+
+		<div class="wrapper">
+			<slot/>
+		</div>
+		<page-footer></page-footer>
+	</body>
+</html>

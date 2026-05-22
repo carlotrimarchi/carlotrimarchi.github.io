@@ -28,5 +28,8 @@
     "shiki": "^4.0.2",
     "tsx": "^4.19.3",
     "typescript": "^6.0.3"
+  },
+  "devDependencies": {
+    "prettier-plugin-astro": "^0.14.1"
   }
 }
