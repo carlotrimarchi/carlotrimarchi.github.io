@@ -1,0 +1,18 @@
+---
+interface Props {
+	class?: string;
+	id?: string;
+	viewBox?: number;
+	width?: number;
+	height?: number;
+}
+const {class: className, id, viewBox, width, height} = Astro.props;
+---
+<svg
+	class:list={className ? className : ''}
+	viewBox={viewBox ? viewBox : null}
+	width={width ? width : null}
+	height={height ? height : null}
+>
+	<use href={id && id.startsWith('#') ? id : `#${htmlId}`}></use>
+</svg>

@@ -1,0 +1,37 @@
+---
+import SvgIcon from "./SvgIcon.astro";
+
+interface Props {
+	title: string;
+	subtitle?: string;
+}
+
+const { title, subtitle } = Astro.props;
+---
+
+<div class="hero">
+	<div class="grid header">
+		<div class="grid__cell grid__cell--icon bracket">
+			<SvgIcon id="#curly" />
+		</div>
+		<div class="grid__cell center-v">
+			<div class="grid__content">
+				<h1 set:html={title} />
+			</div>
+		</div>
+	</div>
+	{
+		subtitle  && (
+			<div class="grid grid--reverse sub-header">
+				<div class="grid__cell center-v">
+					<div class="grid__content">
+						<p set:html={subtitle} />
+					</div>
+				</div>
+				<div class="grid__cell grid__cell--icon bracket">
+					<SvgIcon class="rotate-180" id="#curly" />
+				</div>
+			</div>
+		)
+	}
+</div>

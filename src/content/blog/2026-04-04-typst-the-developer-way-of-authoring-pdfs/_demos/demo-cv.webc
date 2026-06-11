@@ -1,0 +1,167 @@
+<div class="cv flow" webc:root="override">
+	<div class="flow" style="--flow-space: var(--space-2xs)">
+		<div class="title-1">Alex Ampelmann</div>
+		<div class="subtitle">Software Engineer</div>
+	</div>
+	<div class="flow" style="--flow-space: var(--space-xs)">
+		<div class="title-2">Professional Summary</div>
+		<p class="summary">
+			Experienced Software Engineer with 10 years in the industry...
+		</p>
+	</div>
+
+	<div class="work-experience flow">
+		<div class="title-2">Work Experience</div>
+
+		<section class="entry flow">
+			<div class="role">Full-Stack Web Developer</div>
+			<div class="company">Fronteer Web Inc.</div>
+			<div class="entry__meta">
+				1 February 2023 - October 2025, Berlin
+			</div>
+			<ul class="entry__list">
+				<li>
+					delivered
+					<span class="highlight">15 new features</span> before they
+					were even needed
+				</li>
+				<li>
+					invested <span class="highlight">40+ hours</span> in
+					cross-team alignment meetings, yielding a
+					<span class="highlight">net time saving of 12 minutes</span>
+					in development time
+				</li>
+				<li>
+					<span class="highlight"
+						>increased conversion rate by 167%</span
+					>, bringing monthly sales from
+					<span class="highlight">3 to 8</span>
+				</li>
+			</ul>
+		</section>
+
+		<section class="entry flow">
+			<div class="role">Front-End Engineer</div>
+			<div class="company">The Biz Corporation</div>
+			<div class="entry__meta">2021 - October 2022, Barcelona</div>
+			<ul class="entry__list">
+				<li>
+					reduced layout width by
+					<span class="highlight">3px for 47 pages</span> over the
+					course of <span class="highlight">3 weeks</span>
+				</li>
+				<li>
+					<span class="highlight">increased column to row ratio</span>
+					of our product pricing table by 50% in a single fiscal
+					quarter
+				</li>
+				<li>
+					led
+					<span class="highlight">rgb to hsl conversion overhaul</span
+					>, aligning our CSS codebase to the new industry standard
+					set by an article I happened to read
+				</li>
+				<li>
+					built and maintained tailored product customisation widget
+					used and appreciated by
+					<span class="highlight"
+						>more than 2 returning customers</span
+					>
+				</li>
+			</ul>
+		</section>
+	</div>
+
+	<div class="flow" style="--flow-space: var(--space-xs)">
+		<div class="title-2">Skills</div>
+		<p class="summary">
+			...
+		</p>
+	</div>
+	<div class="flow" style="--flow-space: var(--space-xs)">
+		<div class="title-2">Education</div>
+		<p class="summary">
+			...
+		</p>
+	</div>
+
+</div>
+
+<style webc:scoped>
+	:host {
+		--color-accent: red;
+		/* alternatives: #e8e8e8 o #ede7e1 */
+		background: #e8e8e8;
+		color: #1a1a1a;
+		font-family: sans-serif;
+		font-size: 0.9rem;
+		line-height: 1;
+		padding: var(--space-m);
+	}
+
+	:host .cv {
+		max-width: 56rem;
+	}
+
+	:host .title-1 {
+		font-size: 1.2rem;
+		font-weight: 600;
+		margin: 0 0 var(--space-3xs);
+	}
+
+	:host .subtitle {
+		color: var(--color-accent);
+		font-size: 1.3rem;
+		margin: 0 0 var(--space-s);
+	}
+
+	:host .summary {
+		margin: 0 0 var(--space-s);
+	}
+
+	:host .work-experience {
+		--flow-space: var(--space-xs);
+		margin-top: var(--space-s);
+	}
+
+	:host .entry + .entry {
+		margin-top: var(--space-s);
+	}
+
+	:host .entry {
+		--flow-space: 0.35rem;
+	}
+
+	:host .entry__list {
+		line-height: 1.35;
+		list-style-position: outside;
+		margin: 0.65rem 0 0;
+		padding-left: 1.2rem;
+	}
+
+	:host .entry__list li + li {
+		margin-top: 0.35rem;
+	}
+
+	:host .title-2 {
+		font-size: 1.4rem;
+		margin: 0 0 var(--space-2xs);
+	}
+
+	:host .role {
+		color: var(--color-accent);
+	}
+
+	:host .company {
+		font-weight: 700;
+	}
+
+	:host .entry__meta {
+		font-size: 0.85rem;
+		margin-bottom: 0.15rem;
+	}
+
+	:host .highlight {
+		font-weight: 700;
+	}
+</style>

@@ -1,0 +1,27 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+const heroTitle = `I'm a software engineer, educator, and <span id="random-title">slow Rubik's Cube solver</span>.`
+const heroSubtitle = `I specialise in <span class="strong">full-stack web development</span>, have a passion for <span class="strong">teaching</span>, and a dubious past as a <span class="strong">webcomic developer</span>. Like this website, I'm a <a href="blog/work-in-progress">continuous work in progress</a>.`
+---
+
+<BaseLayout heroTitle={heroTitle} heroSubtitle={heroSubtitle}>
+</BaseLayout>
+
+<script>
+	function setRandomTitle() {
+		const titles = [
+			"junior Rubik's Cube solver",
+			"professional chess blunderer",
+			"experienced three-chord guitar strummer",
+			"senior nap ops specialist",
+			"unqualified dinosaur expert",
+			"senior (neo)vim novice",
+		];
+		const titleElement = document.getElementById("random-title");
+		if (!titleElement) return;
+
+		const randomTitle = titles[Math.floor(Math.random() * titles.length)];
+		titleElement.textContent = randomTitle;
+	}
+	document.addEventListener("DOMContentLoaded", setRandomTitle);
+</script>

@@ -1,0 +1,52 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { render } from "astro:content";
+import SvgIcon from "@components/SvgIcon.astro";
+const heroTitle = "Work";
+const works = await getCollection("work");
+const promises = works.map(async (work) => ({
+	...work,
+	Content: (await render(work)).Content,
+}));
+const renderedWorks = await Promise.all(promises);
+
+renderedWorks.sort((a, b) => Number(b.data.end) - Number(a.data.end));
+---
+
+<BaseLayout heroTitle={heroTitle}>
+	<ul class="work">
+		{
+			renderedWorks.map(({data, Content}) => (
+				<li class="grid">
+					<span class="grid__cell grid__cell--icon star">
+						<SvgIcon id="#star" />
+					</span>
+					<div class="grid__cell main">
+						<div class="grid__extra">
+							<div class="date">
+								<span>{data.start}</span>-
+								<span>{data.end}</span>
+							</div>
+							<div class="role">{data.role}</div>
+							<div class="role">{data.employmentType}</div>
+						</div>
+
+						<div class="grid__content flow text">
+							<a class="work-title" href={data.website}>
+								{data.name}
+							</a>
+							<Content />
+
+							<ul class="tags">
+								{data.tags.map((tag) => (
+									<li>{tag}</li>
+								))}
+							</ul>
+						</div>
+					</div>
+				</li>
+			))
+		}
+	</ul>
+</BaseLayout>

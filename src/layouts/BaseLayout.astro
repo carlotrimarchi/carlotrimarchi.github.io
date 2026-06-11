@@ -1,0 +1,77 @@
+---
+import HeadMeta from "@components/HeadMeta.astro";
+import SvgSprite from "@components/SvgSprite.astro";
+import Hero from "@components/Hero.astro";
+import PageFooter from "@components/PageFooter.astro";
+import pageTitle from "../utils/pageTitle";
+import navigation from "@data/navigation.json";
+import "../styles/main.css";
+
+interface Props {
+	title?: string;
+	description?: string;
+	ogImage?: string;
+	heroTitle: string;
+	heroSubtitle?: string;
+	type?: "website" | "article";
+	publishedTime?: string;
+	modifiedTime?: string;
+}
+
+const {
+	title,
+	description,
+	ogImage,
+	heroTitle,
+	heroSubtitle,
+	type = "website",
+	publishedTime,
+	modifiedTime,
+} = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<link rel="canonical" href={canonicalURL} />
+		<HeadMeta
+			title={pageTitle(title)}
+			description={description}
+			url={canonicalURL}
+			ogImage={ogImage}
+			type={type}
+			publishedTime={publishedTime}
+			modifiedTime={modifiedTime}
+		/>
+		<title>{pageTitle(title)}</title>
+		<link rel="icon" href="/favicon.ico" sizes="32x32" />
+		<link rel="icon" href="/icon.svg" type="image/svg+xml" />
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+	</head>
+	<body>
+		<SvgSprite />
+		<header class="wrapper">
+			<nav class="header__nav" aria-label="primary">
+				<a class="logo" href="/">carlo_trimarchi</a>
+				<ul class="cluster" role="list">
+					{
+						navigation.map((item) => {
+							return (
+								<li>
+									<a href={item.url}>{item.text}</a>
+								</li>
+							);
+						})
+					}
+				</ul>
+			</nav>
+		</header>
+
+		<div class="wrapper">
+			<Hero title={heroTitle} subtitle={heroSubtitle} />
+			<slot />
+		</div>
+		<PageFooter />
+	</body>
+</html>

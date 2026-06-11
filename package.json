@@ -3,40 +3,29 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build:demos": "node scripts/build-demos.js",
-    "build": "npm run build:demos && eleventy && npm run build:css",
-    "build:css": "postcss src/assets/css/main.css -o dist/assets/css/main.css",
-    "watch:css": "npm run build:css -- --watch",
-    "start": "ELEVENTY_ENV=development eleventy --serve & npm run watch:css"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "tunnel": "ngrok http --url=https://limit-ethanol-prevalent.ngrok-free.dev 4321"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "type": "module",
-  "devDependencies": {
-    "@11ty/eleventy": "^3.0.0",
-    "@11ty/eleventy-plugin-webc": "^0.11.2",
-    "autoprefixer": "^10.4.21",
-    "cssnano": "^7.0.6",
-    "esbuild": "^0.27.3",
-    "glob": "^13.0.6",
-    "postcss": "^8.5.3",
-    "postcss-cli": "^11.0.1",
-    "postcss-import": "^16.1.0",
-    "postcss-import-ext-glob": "^2.1.1"
-  },
   "dependencies": {
-    "@mdx-js/node-loader": "^3.1.0",
-    "@mdx-js/react": "^3.1.0",
-    "@shikijs/markdown-it": "^4.0.2",
-    "@shikijs/rehype": "^4.0.2",
-    "esbuild-register": "^3.6.0",
-    "prism-react-renderer": "^2.4.1",
+    "@astrojs/mdx": "^5.0.6",
+    "@astrojs/react": "^5.0.5",
+    "astro": "^6.3.7",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0",
-    "remark-gfm": "^4.0.1",
-    "shiki": "^4.0.2",
-    "tsx": "^4.19.3"
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.9",
+    "hastscript": "^9.0.0",
+    "lightningcss": "^1.32.0",
+    "prettier-plugin-astro": "^0.14.1",
+    "typescript": "^6.0.3",
+    "unist-util-visit": "^5.0.0"
   }
 }

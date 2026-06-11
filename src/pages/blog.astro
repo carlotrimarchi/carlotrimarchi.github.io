@@ -1,0 +1,47 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { dateAttribute, postDate } from "../utils/date";
+import SvgIcon from "@components/SvgIcon.astro";
+const heroTitle = "Blog";
+const posts = await getCollection("blog");
+
+posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<BaseLayout heroTitle={heroTitle}>
+	<ul class="list">
+		{
+			posts.map((post) => (
+				<li class="grid">
+					<span class="grid__cell grid__cell--icon star">
+						<SvgIcon id="#star" />
+					</span>
+					<div class="grid__cell">
+						<div class="grid__content flow">
+							<div
+								class="flow"
+								style="--flow-space: var(--space-s)"
+							>
+								<h2 class="post-title">
+									<a href={`/blog/${post.id}`}>
+										{post.data.title}
+									</a>
+								</h2>
+								<p class="italic">
+									Posted on{" "}
+									<time
+										datetime={dateAttribute(post.data.date)}
+									>
+										{postDate(post.data.date)}
+									</time>
+								</p>
+							</div>
+							<p class="text">{post.data.teaser}</p>
+						</div>
+					</div>
+				</li>
+			))
+		}
+	</ul>
+</BaseLayout>
