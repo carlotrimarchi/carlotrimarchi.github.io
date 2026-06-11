@@ -1,0 +1,32 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+
+interface Props {
+	title: string;
+	subtitle?: string;
+	teaser?: string;
+	publishedTime?: string;
+	modifiedTime?: string;
+}
+
+const { title, subtitle, teaser, publishedTime, modifiedTime } = Astro.props;
+---
+
+<BaseLayout
+	title={title}
+	description={teaser}
+	heroTitle={title}
+	heroSubtitle={subtitle}
+	type="article"
+	publishedTime={publishedTime}
+	modifiedTime={modifiedTime}
+>
+	<div class="grid">
+		<div class="grid__cell"></div>
+		<div class="grid__cell main">
+			<div class="grid__content flow text">
+				<slot />
+			</div>
+		</div>
+	</div>
+</BaseLayout>

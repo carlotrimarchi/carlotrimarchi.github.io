@@ -1,63 +1,77 @@
 ---
-baseUrl: "{{ baseUrl }}"
+import HeadMeta from "@components/HeadMeta.astro";
+import SvgSprite from "@components/SvgSprite.astro";
+import Hero from "@components/Hero.astro";
+import PageFooter from "@components/PageFooter.astro";
+import pageTitle from "../utils/pageTitle";
+import navigation from "@data/navigation.json";
+import "../styles/main.css";
+
 interface Props {
-	title: string;
+	title?: string;
+	description?: string;
+	ogImage?: string;
+	heroTitle: string;
+	heroSubtitle?: string;
+	type?: "website" | "article";
+	publishedTime?: string;
+	modifiedTime?: string;
 }
-const { title} = Astro.props;
+
+const {
+	title,
+	description,
+	ogImage,
+	heroTitle,
+	heroSubtitle,
+	type = "website",
+	publishedTime,
+	modifiedTime,
+} = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta name="generator" :content="eleventy.generator" />
-		<meta
-			name="description"
-			:content="teaser || description || siteDescription || ''"
+		<link rel="canonical" href={canonicalURL} />
+		<HeadMeta
+			title={pageTitle(title)}
+			description={description}
+			url={canonicalURL}
+			ogImage={ogImage}
+			type={type}
+			publishedTime={publishedTime}
+			modifiedTime={modifiedTime}
 		/>
-		<link
-			rel="canonical"
-			:href="(siteUrl || siteDefaultUrl) + (page.url || '/')"
-		/>
-		<template
-			webc:is="meta-social"
-			webc:nokeep
-			:meta="socialMeta"
-		></template>
-		<!-- <title @raw="pageTitle(title)"></title> -->
-		<title>{title}</title>
+		<title>{pageTitle(title)}</title>
 		<link rel="icon" href="/favicon.ico" sizes="32x32" />
 		<link rel="icon" href="/icon.svg" type="image/svg+xml" />
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-		<link
-			rel="stylesheet"
-			href="/assets/css/main.css?blakfdjals"
-			webc:keep
-		/>
-		<style @html="this.getCSS(this.page.url)"></style>
-		<style @raw="getBundle('css')" webc:keep></style>
 	</head>
 	<body>
-		<svg-sprite></svg-sprite>
+		<SvgSprite />
 		<header class="wrapper">
 			<nav class="header__nav" aria-label="primary">
 				<a class="logo" href="/">carlo_trimarchi</a>
 				<ul class="cluster" role="list">
-					<li webc:for="item of navigation.items">
-						<a :href="item.url" @raw="item.text"></a>
-					</li>
+					{
+						navigation.map((item) => {
+							return (
+								<li>
+									<a href={item.url}>{item.text}</a>
+								</li>
+							);
+						})
+					}
 				</ul>
 			</nav>
-
-			<!--
-	<page-header :@title="this.pageTitle" webc:nokeep></page-header>
-	-->
 		</header>
 
 		<div class="wrapper">
-			<slot/>
+			<Hero title={heroTitle} subtitle={heroSubtitle} />
+			<slot />
 		</div>
-		<page-footer></page-footer>
+		<PageFooter />
 	</body>
 </html>
