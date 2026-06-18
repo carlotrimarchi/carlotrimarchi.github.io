@@ -23,6 +23,10 @@ figure {
   margin-inline: 0;
 }
 
+img {
+  height: auto;
+}
+
 
 a:hover {
   background-color: var(--color-black);
